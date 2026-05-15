@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://difopi6wtolpj"]
+
+[ext_resource type="Shader" uid="uid://4ne1p8flsu1c" path="res://shaders/flash.tres" id="1_52bhi"]
+[ext_resource type="Texture2D" uid="uid://cexoadqpuy6e2" path="res://graphics/plants/apple.png" id="2_7lm2o"]
+[ext_resource type="Script" path="res://scenes/VFX/flash_sprite_2d.gd" id="3_8s53g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qmgv"]
+resource_local_to_scene = true
+shader = ExtResource("1_52bhi")
+shader_parameter/Color = Color(1, 1, 1, 1)
+shader_parameter/Progress = 0.0
+
+[node name="FlashSprite2D" type="Sprite2D"]
+material = SubResource("ShaderMaterial_5qmgv")
+texture = ExtResource("2_7lm2o")
+script = ExtResource("3_8s53g")

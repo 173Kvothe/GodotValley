@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PlantResource" load_steps=3 format=3 uid="uid://dqiwqob5vai8c"]
+
+[ext_resource type="Script" path="res://resources/plant_res.gd" id="1_v02x4"]
+[ext_resource type="Texture2D" uid="uid://cnur3o7y688kk" path="res://graphics/plants/tomato.png" id="2_qba3s"]
+
+[resource]
+script = ExtResource("1_v02x4")
+texture = ExtResource("2_qba3s")

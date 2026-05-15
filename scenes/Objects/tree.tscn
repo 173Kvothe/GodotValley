@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://dp0604sl0iwv0"]
+
+[ext_resource type="Texture2D" uid="uid://d3pi6mohcmq4p" path="res://graphics/plants/tree.png" id="1_sacud"]
+[ext_resource type="Script" path="res://scenes/Objects/tree.gd" id="1_tatg6"]
+[ext_resource type="Texture2D" uid="uid://dyxbmdangl8xx" path="res://graphics/plants/stump.png" id="2_c0fcp"]
+[ext_resource type="PackedScene" uid="uid://difopi6wtolpj" path="res://scenes/VFX/flash_sprite_2d.tscn" id="2_j552q"]
+[ext_resource type="Shader" uid="uid://4ne1p8flsu1c" path="res://shaders/flash.tres" id="3_wddaa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q7mo6"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_64fa5"]
+resource_local_to_scene = true
+shader = ExtResource("3_wddaa")
+shader_parameter/Color = Color(1, 1, 1, 1)
+shader_parameter/Progress = 0.0
+
+[node name="Tree" type="StaticBody2D" groups=["Objects"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_tatg6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_q7mo6")
+
+[node name="Stump" type="Sprite2D" parent="."]
+position = Vector2(0, 10)
+texture = ExtResource("2_c0fcp")
+
+[node name="FlashSprite2D" parent="." instance=ExtResource("2_j552q")]
+material = SubResource("ShaderMaterial_64fa5")
+texture = ExtResource("1_sacud")
+hframes = 2
+
+[node name="AppleSpawnPositions" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="AppleSpawnPositions"]
+position = Vector2(8, -2)
+
+[node name="Marker2D2" type="Marker2D" parent="AppleSpawnPositions"]
+position = Vector2(-8, 4)
+
+[node name="Marker2D3" type="Marker2D" parent="AppleSpawnPositions"]
+position = Vector2(-6, -5)
+
+[node name="Marker2D4" type="Marker2D" parent="AppleSpawnPositions"]
+position = Vector2(10, 6)
+
+[node name="Marker2D5" type="Marker2D" parent="AppleSpawnPositions"]
+position = Vector2(-9, 0)
+
+[node name="Marker2D6" type="Marker2D" parent="AppleSpawnPositions"]
+position = Vector2(6, -5)
+
+[node name="Marker2D7" type="Marker2D" parent="AppleSpawnPositions"]
+position = Vector2(0, 7)
+
+[node name="Apples" type="Node2D" parent="."]
